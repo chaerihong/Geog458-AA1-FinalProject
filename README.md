@@ -43,3 +43,42 @@ Lastly, one of the potential audiences is governmental officials. Informing them
 [Hospital beds](https://th-thumbnailer.cdn-si-edu.com/F6MN7vfNd8zeHpNYi58PzoC_OAo=/1000x750/filters:no_upscale()/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/b4/c6/b4c65fd0-01ba-4262-9b3d-f16b53bca617/istock-172463472.jpg)
 
 [UW Medicine building](https://www.usa.skanska.com/4a532f/globalassets/externalcontent2/project/university-of-washington-medical-center-montlake-tower-expansion/ab603c15-f473-47cb-a54c-c5ba53b2558d.1.jpg?height=524&width=932&scale=both&mode=crop&bgcolor=)
+
+## Geo-narrative
+- Map projection:
+- Map zoom levels: X (US), X (WA), X (Seattle)
+- Center: X (US), X (WA), X (Seattle)
+- Description of the base map planned to use:
+- Description of thematic layers to make: 
+  1. Hospitals in the US as point data
+  2. Hospitals in WA as points and County Population in WA as choropleth
+  3. Total Beds in Hospitals in WA as choropleth by county
+  4. Distance from Parcels to Hospitals in Seattle as choropleth
+- Proposed interactive functions:
+- Storyline:
+  1. Cover page/intro
+  2. Map Flow: 
+     a. Hospitals in the US 
+     b. Hospitals in WA and County Population in WA 
+     c. Total Beds in Hospitals in WA 
+     d. Distance from Parcels to Hospitals in Seattle
+  3. Ending/conclusion
+  4. Footer
+- Scenes:
+  - 0
+    - Map: Hospitals in the US as points
+    - Associated script:
+    - Multimedia:
+  - 1
+    - Map: Hospitals in WA as points and County Population in WA as choropleth
+    - Associated script:
+    - Multimedia:
+  - 2:
+    - Map: Total Beds in Hospitals in WA as choropleth by county
+    - Associated script:
+    - Multimedia:
+  - 3:
+    - Map: Distance from Parcels to Hospitals in Seattle as choropleth
+    - Associated script:
+    - Multimedia:
+- Transitions: zoom in from place to place when geographical location changes, however, for same ones (like US), zoom will remain the same
