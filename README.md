@@ -1,7 +1,7 @@
 # Geog458-AA1-Final Project
 Wi24 Geog 458 GroupAA1 final project
 
-Group AA1
+### Group AA1
 - Abigail Chinn
 - Chaeri Hong
 - 
@@ -17,11 +17,19 @@ We will use our maps and data to display hospital availability in the United Sta
 
 ## Data sources
 [Washington county population](https://data.wa.gov/demographics/WAOFM-Census-Population-Density-by-County-by-Decad/e6ip-wkqq/about_data)
+
 [Washington health Districts from WSDOH](https://geo.wa.gov/datasets/WADOH::lhj/explore?location=47.022273%2C-121.249930%2C8.66)
+
 [Hospitals in Washington](https://geo.wa.gov/datasets/WADOH::hospitals/explore?location=46.138169%2C-118.651792%2C7.23)
+
 [Hospital statistics by state](https://www.ahd.com/state_statistics.html)
+
 [Covid cases/deaths by county](https://geo.wa.gov/datasets/99d6ae7787bc4a739c7885eb5ca25b37_0/explore?location=47.140544%2C-119.860715%2C8.11)
+
 [Hospitals in the United States](https://hifld-geoplatform.opendata.arcgis.com/datasets/geoplatform::hospitals/about)
+
 [Parcels in Washington](https://geo.wa.gov/datasets/e8f2df3ed92843738f3dd778e92e93fc/explore)
+
 [Washington State Counties](https://cartographyvectors.com/map/1396-washington-state-counties)
+
 [States](https://hub.arcgis.com/datasets/1b02c87f62d24508970dc1a6df80c98e/explore?location=27.635228%2C-101.458575%2C3.68)
