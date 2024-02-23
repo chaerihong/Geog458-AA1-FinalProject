@@ -39,3 +39,7 @@ We want our audience to be community members. Bottom-up challenges to authority 
 
 Lastly, one of the potential audiences is governmental officials. Informing them of the up-to-date distribution of hospitals locally and nationwide may bring some positive changes. 
 
+## Multimedia
+[Hospital beds](https://th-thumbnailer.cdn-si-edu.com/F6MN7vfNd8zeHpNYi58PzoC_OAo=/1000x750/filters:no_upscale()/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/b4/c6/b4c65fd0-01ba-4262-9b3d-f16b53bca617/istock-172463472.jpg)
+
+[UW Medicine building](https://www.usa.skanska.com/4a532f/globalassets/externalcontent2/project/university-of-washington-medical-center-montlake-tower-expansion/ab603c15-f473-47cb-a54c-c5ba53b2558d.1.jpg?height=524&width=932&scale=both&mode=crop&bgcolor=)
