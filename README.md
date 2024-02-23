@@ -33,3 +33,9 @@ We will use our maps and data to display hospital availability in the United Sta
 [Washington State Counties](https://cartographyvectors.com/map/1396-washington-state-counties)
 
 [States](https://hub.arcgis.com/datasets/1b02c87f62d24508970dc1a6df80c98e/explore?location=27.635228%2C-101.458575%2C3.68)
+
+## Target audience
+We want our audience to be community members. Bottom-up challenges to authority figures as learned from Stand with #StandingRock are where ordinary people can ignite change or create momentum. Those in government and public policy will be unlikely to build hospitals in areas where there aren't already because of high costs, so hospitals need to be pushed by community voices that unite together. The existence of hospital services that provide essential healthcare services will be important for community members who live in those areas to get services they may need. Informing community members and the public with these facts may bring the topic of medical care up to the table in areas lacking hospital availability. 
+
+Lastly, one of the potential audiences is governmental officials. Informing them of the up-to-date distribution of hospitals locally and nationwide may bring some positive changes. 
+
