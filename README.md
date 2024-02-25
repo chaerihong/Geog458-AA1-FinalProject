@@ -9,8 +9,10 @@ Wi24 Geog 458 GroupAA1 final project
 - 
 
 ## Project idea & format & significance & impacts
-We are planning on making a series of maps starting with a broad area and moving to a more localized area, showcasing hospital accessibility. We plan to make a map-based storytelling project with VSCode and Mapbox to publish to GitHub Pages, building our final project off of lab 7. We plan to start with a map of hospitals as points in the United States, and as users scroll down, they will see a second map showing the location of hospitals as points and county populations in Washington State as the choropleth. The third map will show the total number of beds in hospitals in Washington as a choropleth. Lastly, the distance from parcels to hospitals in Washington is color-coded by distance. 
-The significance of this project idea is that it demonstrates disparities in hospital access, which play an important role in determining overall health outcomes. These maps will look at how the spatial distribution of hospitals varies across the United States, Washington, and Seattle, to see where the absence of hospitals is. This seeks to highlight existing challenges in hospital access, but also how absence may lead to delayed hospital access, and thus health outcomes.
+We are planning on making a series of maps starting with a broad area and moving to a more localized area, showcasing hospital accessibility. We plan to make a map-based storytelling project with VSCode and Mapbox to publish to GitHub Pages, building our final project off of lab 7. We plan to start with a map of hospitals as points in the United States, and as users scroll down, they will see a second map showing the location of hospitals as points and county populations in Washington State as the choropleth. The third map will show the total number of beds in hospitals in Washington as a choropleth. Lastly, the distance from parcels to hospitals in Washington is color-coded by distance.  
+The significance of this project idea is that it demonstrates disparities in hospital access, which play an important role in determining overall health outcomes. These maps will look at how the spatial distribution of hospitals varies across the United States, Washington, and Seattle, to see where the absence of hospitals is. This seeks to highlight existing challenges in hospital access, but also how absence may lead to delayed hospital access, and thus health outcomes.  
+Potential negative impacts that can be generated include causing professionals to choose hospitals with more room and choose states and cities with more hospitals and medical resources. Our audience, which is the public, may also migrate according to medical resources of different areas. Lastly, presenting the number of beds may be insufficient, including the population and bed number proportion may help.
+
 
 ## Functions
 We will use our maps and data to display hospital availability in the United States and Washington. Using a series of datasets, we will illustrate patterns in the distribution of hospital access in Washington State. As users scroll downward on the webpage, they will be able to view the various maps listed above as they demonstrate hospital accessibility and disparities in access from a country level to a city level. As users hover over data points on the maps, they will be able to see different data points, such as the county population in Washington, hospital numbers within the area, and the county name.
@@ -44,6 +46,7 @@ Lastly, one of the potential audiences is governmental officials. Informing them
 
 [UW Medicine building](https://www.usa.skanska.com/4a532f/globalassets/externalcontent2/project/university-of-washington-medical-center-montlake-tower-expansion/ab603c15-f473-47cb-a54c-c5ba53b2558d.1.jpg?height=524&width=932&scale=both&mode=crop&bgcolor=)
 
+[UW medicine building2](https://images.seattletimes.com/wp-content/uploads/2023/06/06092023_UW_Hospital_Montlake-2016_152832.jpg?d=2040x1386)
 ## Geo-narrative
 - Map projection:
 - Map zoom levels: X (US), X (WA), X (Seattle)
@@ -81,4 +84,4 @@ Lastly, one of the potential audiences is governmental officials. Informing them
     - Map: Distance from Parcels to Hospitals in Seattle as choropleth
     - Associated script:
     - Multimedia:
-- Transitions: zoom in from place to place when geographical location changes, however, for same ones (like US), zoom will remain the same
+- Transitions: zoom in from place to place when geographical location changes, however, for same ones (like US), zoom will remain the same ; Scroll to transit among maps and pages. 
