@@ -5,7 +5,7 @@ Wi24 Geog 458 GroupAA1 final project
 - Abigail Chinn
 - Chaeri Hong
 - Yezhen Chen
-- 
+- Wyatt Stanley
 - 
 
 ## Project idea & format & significance & impacts
