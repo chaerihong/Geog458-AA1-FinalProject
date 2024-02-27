@@ -6,7 +6,7 @@ Wi24 Geog 458 GroupAA1 final project
 - Chaeri Hong
 - Yezhen Chen
 - Wyatt Stanley
-- 
+- Elijah Price
 
 ## Project idea & format & significance & impacts
 We are planning on making a series of maps starting with a broad area and moving to a more localized area, showcasing hospital accessibility. We plan to make a map-based storytelling project with VSCode and Mapbox to publish to GitHub Pages, building our final project off of lab 7. We plan to start with a map of hospitals as points in the United States, and as users scroll down, they will see a second map showing the location of hospitals as points and county populations in Washington State as the choropleth. The third map will show the total number of beds in hospitals in Washington as a choropleth. Lastly, the distance from parcels to hospitals in Washington is color-coded by distance. 
