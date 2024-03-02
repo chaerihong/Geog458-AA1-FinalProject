@@ -184,8 +184,8 @@
           if (index === 0) { // When enter the first scene
 
             map.flyTo({
-              center: [-121.93, 47.33],
-              zoom: 8,
+              center: [-109.4151140079552, 41.25017612415869],
+              zoom: 4,
               pitch: 0,
               speed: 0.5
             }); // fly to a new location
@@ -207,8 +207,8 @@
 
           } else if (index === 1) { // When enter the second scene.
             map.flyTo({
-              center: [-121.93, 47.33],
-              zoom: 8,
+              center: [-122.32924428512132, 47.646212989022125],
+              zoom: 7,
               pitch: 60,
               speed: 0.5
 
@@ -227,39 +227,40 @@
             if (!map.getLayer("celltowers-points")) {
               map.addLayer(cellTowersLayer);
             }
-          } else if (index === 2) {
+          } 
+          
+          else if (index === 2) {
             //Relocate to Seattle
             map.flyTo({
-              center: [-122.4121036, 47.6131229],
-              zoom: 12,
+              center: [-122.32924428512132, 47.646212989022125],
+              zoom: 7,
               pitch: 0,
               speed: 0.5
-
             });
 
-          } else if (index === 3) {
-            //Relocate to Portland
+          } 
+          
+          else if (index === 3) {
             map.flyTo({
-              center: [-122.724366, 45.5428119],
-              zoom: 12,
-              pitch: 60,
-              speed: 0.5
+              center: [-122.3659068281188, 47.591669543756304],
+              zoom: 11,
+            }); // fly to a new location
+         
+            // if (typeof (map.getSource('sea-src')) == 'undefined') {
+            //   map.addSource('sea-src', {
+            //     type: 'geojson',
+            //     data: sea
+            //   });
+            // } else {
+            //   map.getSource('sea-src').setData(sea);
+            // }
 
-            });
-
-            map.setStyle('mapbox://styles/mapbox/satellite-streets-v10'); // change the base map
-          } else if (index === 6) {
-
-            map.flyTo({
-              center: [-122.4121036, 47.6131229],
-              zoom: 12,
-              pitch: 0,
-              speed: 0.5
-
-            });
-
+            // if (!map.getLayer("sea-points")) {
+            //   map.addLayer(seaLayer);
+            // }
 
           }
+
         }
 
         // 11. This function performs when a scene exists the storyboard
@@ -280,8 +281,7 @@
               map.removeLayer('celltowers-points');
             }
           } else if (index === 3) {
-            //exit to Portland
-            map.setStyle('mapbox://styles/mapbox/light-v10');
+
           } 
         }
 
