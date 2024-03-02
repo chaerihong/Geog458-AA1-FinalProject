@@ -3,10 +3,10 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="description" content="GeoNarrative Template" />
+  <meta name="description" content="Hospital Accessibility" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-  <title>GeoNarrative Template</title>
+  <title>Hospital Accessibility</title>
   <!-- <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;1,400;1,500&display=swap" /> -->
   <!-- <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css"> -->
@@ -24,31 +24,8 @@
       <source src="assets/intro.mp4" type="video/mp4">
     </video>
     <div id="intro">
-      <h1>A GeoNarrative Template</h1>
-      <h5>This line is a place holder for subtitle</h5>
-      <p>This section shows where active research is happening, and on what topics to communicate on-going nature of
-        scientific learning. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-        ligula
-        eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-        Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede
-        justo,
-        fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdet a, venenatis vitae, justo.
-        Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
-        Aenean
-        vulputate
-        eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante,
-        dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
-        Aenean imperdiet.
-        Etiam
-        ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus,
-        tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,
-        blandit
-        vel,
-        luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero
-        venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla
-        mauris sit
-        amet
-        nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.</p>
+      <h1>Hospital Accessibility</h1>
+      <h5>intro</p>
 
       <div class="footnote">
         <span> This line is a place holder for copyright note or other footnotes.</span>
@@ -65,49 +42,26 @@
     </div>
 
     <article class="scene" data-scene="0">
-      <h2>STEP 1: Loading Polygons</h2>
+      <h2>Hospitals in the US</h2>
     </article>
     <article class="scene" data-scene="1">
-      <h2>STEP 2: Loading Points</h2>
+      <h2>Hospitals and County Population in WA </h2>
     </article>
     <article class="scene" data-scene="2">
-      <h2>STEP 3: Relocate to Place A (Seattle)</h2>
+      <h2>Total Beds in Hospitals in WA </h2>
     </article>
     <article class="scene" data-scene="3">
-      <h2>STEP 4: Relocate to Place B (Portland)</h2>
+      <h2>Distance from Parcels to Hospitals in Seattle</h2>
     </article>
-    <article class="scene" data-scene="4">
-      <h2>STEP 5: Text Script</h2>
-      <p>This section shows where active research is happening, and on what topics to communicate on-going nature of
-        scientific learning. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-        Aenean massa.
-        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-        ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla
-        vel, aliquet nec,
-        vulputate eget, arcu. In enim justo, rhoncus ut, imperdet a, venenatis vitae, justo. Nullam dictum felis eu pede
-        mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate.
-      </p>
-      <hr>
-      <div>
-        <!-- loading bootstrap icons -->
-        <p><i class="bi bi-person"></i> <span>2,823</span>
-        </p>
-        <p><i class="bi bi-map"></i> <span>3,520</span>
-        </p>
-      </div>
-    </article>
-    <article class="scene" data-scene="5">
-      <h2>STEP 6: Image </h2>
-      <img src="img/portland.jpg"></img>
-    </article>
-    <article class="scene fullscreen" data-scene="6">
-      <h2>STEP 7: Ending Page</h2>
+    <article class="scene fullscreen" data-scene="4">
+      <h2>Conclusion</h2>
     </article>
 
   </section>
 
   <section id="footer">
-    <h2>FOOTER</h2>
+    <h2>By: Yezhen Chen, Abi Chinn, Chaeri Hong, Elijah Price, & Wyatt Stanley</h2>
+    <h2>GEOG 458 Group AA 1</h2>
   </section>
 
 
@@ -152,10 +106,10 @@
     map = new mapboxgl.Map({
       container: 'map', // container ID
       style: 'mapbox://styles/mapbox/light-v10',
-      zoom: 7, // starting zoom
+      zoom: 4, // starting zoom
       minZoom: 3,
-      maxZoom: 10,
-      center: [-121.93, 47.33], // starting center
+      maxZoom: 15,
+      center: [-109.4151140079552, 41.25017612415869], // starting center
       scrollZoom: false,
       boxZoom: false,
       doubleClickZoom: false
