@@ -66,7 +66,7 @@
 
   <script>
     // 1. Declare the maps, script panels, and different thematic layers.
-    let map, scriptPanel = scrollama(), countiesLayer, cellTowersLayer;
+    let map, scriptPanel = scrollama(), ushospitalLayer, cellTowersLayer;
 
     // 2. Intialize the layout.
    
@@ -122,9 +122,9 @@
     async function geojsonFetch() {
 
       // 6 wait till the data of washington counties and celltowers are fully loaded.
-      let response, counties, celltowers;
-      response = await fetch("assets/wacountydata.geojson");
-      counties = await response.json();
+      let response, ushospital, celltowers;
+      response = await fetch("assets/ushospital.geojson");
+      ushospital = await response.json();
       response = await fetch("assets/celltowers.geojson");
       celltowers = await response.json();
 
@@ -136,7 +136,7 @@
 
         map.on('click', function(e) {
           // Get features at the clicked point
-          var features = map.queryRenderedFeatures(e.point, { layers: ['counties-points'] });
+          var features = map.queryRenderedFeatures(e.point, { layers: ['ushospital-points'] });
 
           if (!features.length) {
               return;
@@ -157,15 +157,15 @@
           data: celltowers
         });
 
-        map.addSource('counties-src', {
+        map.addSource('ushospital-src', {
           type: 'geojson',
-          data: counties
+          data: ushospital
         });
 
-        countiesLayer = {
-          'id': 'counties-points',
+        ushospitalLayer = {
+          'id': 'ushospital-points',
           'type': 'circle',
-          'source': 'counties-src',
+          'source': 'ushospital-src',
           'minzoom': 5,
           'paint': {
             'circle-color': 'red',
@@ -226,18 +226,18 @@
               speed: 0.5
             }); // fly to a new location
             
-            if (typeof (map.getSource('counties-src')) == 'undefined') { //if the map source 'counties-src' does not exist
-              map.addSource('counties-src', {
+            if (typeof (map.getSource('ushospital-src')) == 'undefined') { //if the map source 'counties-src' does not exist
+              map.addSource('ushospital-src', {
                 type: 'geojson',
-                data: counties
+                data: ushospital
               }); // reload the map source of 'counties-src'
             } else {
-              map.getSource('counties-src').setData(counties); // if the map source does not exist, relaod the data counties to the pre-defined map source 'counties-src'.
+              map.getSource('ushospital-src').setData(ushospital); // if the map source does not exist, relaod the data counties to the pre-defined map source 'counties-src'.
 
             }
 
-            if (!map.getLayer("counties-points")) { // if the map layer 'counties-polygons' does not exit
-              map.addLayer(countiesLayer);
+            if (!map.getLayer("ushospital-points")) { // if the map layer 'counties-polygons' does not exit
+              map.addLayer(ushospitalLayer);
             }
             document.getElementById("cover").style.visibility = "hidden"; // Hide the cover page
 
@@ -298,8 +298,8 @@
           var index = response.index;
 
           if (index === 0) {
-            if (map.getLayer("counties-points")) {
-              map.removeLayer('counties-points');
+            if (map.getLayer("ushospital-points")) {
+              map.removeLayer('ushospital-points');
             }
             if (response.direction == 'down') { 
               document.getElementById("cover").style.visibility = "hidden"; // when you scroll down, the cover page will be hided.
