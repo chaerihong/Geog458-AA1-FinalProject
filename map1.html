@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Minority Population in Seattle and Hospitals</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiamFrb2J6aGFvIiwiYSI6ImNpcms2YWsyMzAwMmtmbG5icTFxZ3ZkdncifQ.P9MBej1xacybKcDN_jehvw';
+        let map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/light-v10',
+            zoom: 10.3,
+            minZoom: 3,
+            center: [-122.3, 47.62],
+        });
+    
+        async function geojsonFetch() { 
+            let response = await fetch('assets/ushospital.geojson');
+            let ushospital = await response.json();
+            map.on('load', function loadingData() {
+    
+                map.addSource('ushospital-src', {
+                    type: 'geojson',
+                    data: ushospital
+                });
+    
+                map.addLayer({
+                    'id': 'ushospital-points',
+                    'type': 'circle',
+                    'source': 'ushospital-src',
+                    'minzoom': 5,
+                    'paint': {
+                        'circle-color': 'red',
+                        'circle-radius': 4,
+                        'circle-opacity': 0.8,
+                    }
+                });
+            });
+        }
+        geojsonFetch();
+    </script>
+
+
+</body>
+
+</html>
