@@ -47,10 +47,10 @@
       <h2>Hospitals and County Population in WA </h2>
     </article>
     <article class="scene" data-scene="2">
-      <h2>Total Beds in Hospitals in WA </h2>
+      <h2>Total Beds in Hospitals in WA</h2>
     </article>
     <article class="scene" data-scene="3">
-      <h2>Distance from Parcels to Hospitals in Seattle</h2>
+      <h2>Hospital Accessibility for Minority Populations by Census Tract in Seattle, WA</h2>
     </article>
     <article class="scene fullscreen" data-scene="4">
       <h2>Conclusion</h2>
@@ -166,6 +166,22 @@
           }
         };
 
+        map.addSource('min-tiles', {
+                'type': 'raster',
+                'tiles': [
+                    'assets/min/{z}/{x}/{y}.png'
+                ],
+                'tileSize': 256,
+            });
+        map.addLayer({
+            'id': 'min',
+            'type': 'raster',
+            'layout': {
+                'visibility': 'none'
+            },
+            'source': 'min-tiles'
+        });
+
         // 9. Initialize the script panel
         scriptPanel
           .setup({
@@ -245,20 +261,14 @@
               center: [-122.3659068281188, 47.591669543756304],
               zoom: 11,
             }); // fly to a new location
-         
-            // if (typeof (map.getSource('sea-src')) == 'undefined') {
-            //   map.addSource('sea-src', {
-            //     type: 'geojson',
-            //     data: sea
-            //   });
-            // } else {
-            //   map.getSource('sea-src').setData(sea);
-            // }
 
-            // if (!map.getLayer("sea-points")) {
-            //   map.addLayer(seaLayer);
-            // }
+            if (map.getLayer("min")) {
+              map.setLayoutProperty("min", "visibility", "visible");
+            }
+          }
 
+          if (index !== 3 && map.getLayer("min")) {
+            map.setLayoutProperty("min", "visibility", "none");
           }
 
         }
@@ -280,9 +290,7 @@
             if (map.getLayer("celltowers-points")) {
               map.removeLayer('celltowers-points');
             }
-          } else if (index === 3) {
-
-          } 
+          }
         }
 
 
