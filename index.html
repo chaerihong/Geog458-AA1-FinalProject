@@ -135,7 +135,6 @@
       map.on('load', () => {
 
         // ADDING CLICKABLE POINTS
-
         map.on('click', function(e) {
           // Get features at the clicked point
           var features = map.queryRenderedFeatures(e.point, { layers: ['ushospital-points'] });
@@ -151,19 +150,6 @@
               .setLngLat(feature.geometry.coordinates)
               .setHTML('<h3>' + feature.properties.NAME + '</h3><p>' + feature.properties.CITY + '</p>')
               .addTo(map);
-          
-          var Rfeatures = map.queryRenderedFeatures(e.point, { layers: ['race-layer'] });
-          if (!Rfeatures.length) {
-              return;
-          }
-          var Rfeature = Rfeatures[0];
-
-          // You can now access properties of the clicked feature and display them
-          var Rpopup = new mapboxgl.Popup()
-              .setLngLat(Rfeature.geometry.coordinates)
-              .setHTML('<h3>' + Rfeature.properties.MinorityP + '</h3>')
-              .addTo(map);
-          
         });
 
         // 8. add map source and declare layers.
@@ -286,7 +272,9 @@
           } if (index !== 3) {
               map.setLayoutProperty("race-layer", "visibility", "none");
             }
-          document.getElementById("cover").style.visibility = "hidden"; }
+          document.getElementById("cover").style.visibility = "hidden"; 
+        
+        }
           
           else if (index === 1) { // When enter the second scene.
             map.flyTo({
@@ -323,7 +311,6 @@
 
           } 
           
-
         }
 
         // 11. This function performs when a scene exists the storyboard
@@ -339,6 +326,11 @@
             } else {
               document.getElementById("cover").style.visibility = "visible"; // when you scroll up, the cover page will be shown.
             }
+            if (index === 3) { 
+            if (map.getLayer("race-layer")) {
+              map.removeLayer("race-layer");
+            }
+          }
           }
           
           else if (index === 1) {
@@ -347,11 +339,10 @@
             }
           }
 
-          else if (index === 3) { 
+          if (index === 3) { 
             if (map.getLayer("race-layer")) {
-            map.removelayer("race-layer"); 
+              map.removeLayer("race-layer");
             }
-
           }
 
         }
