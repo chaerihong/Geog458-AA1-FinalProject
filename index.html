@@ -66,7 +66,7 @@
 
   <script>
     // 1. Declare the maps, script panels, and different thematic layers.
-    let map, scriptPanel = scrollama(), ushospitalLayer, cellTowersLayer;
+    let map, scriptPanel = scrollama(), ushospitalLayer, emsLayer;
 
     // 2. Intialize the layout.
    
@@ -121,12 +121,12 @@
     // 5. define the asynchronous function to load geojson data and then performs the dependent actions.
     async function geojsonFetch() {
 
-      // 6 wait till the data of washington counties and celltowers are fully loaded.
-      let response, ushospital, celltowers, minority;
+      // 6 wait till the data of washington counties and ems are fully loaded.
+      let response, ushospital, ems, minority;
       response = await fetch("assets/ushospital.geojson");
       ushospital = await response.json();
-      response = await fetch("assets/WAHospitals.geojson");
-      celltowers = await response.json();
+      response = await fetch("assets/EMS_Stations.geojson");
+      ems = await response.json();
       response = await fetch("assets/minority.geojson");
       minority = await response.json();
 
@@ -153,9 +153,9 @@
         });
 
         // 8. add map source and declare layers.
-        map.addSource('celltowers-src', {
+        map.addSource('ems-src', {
           type: 'geojson',
-          data: celltowers
+          data: ems
         });
 
         map.addSource('ushospital-src', {
@@ -175,15 +175,15 @@
           }
         };
 
-        cellTowersLayer = {
-          'id': 'celltowers-points',
+        emsLayer = {
+          'id': 'ems-points',
           'type': 'circle',
-          'source': 'celltowers-src',
+          'source': 'ems-src',
           'minzoom': 5,
           'paint': {
-            'circle-color': 'purple',
-            'circle-radius': 4,
-            'circle-opacity': 0.8,
+            'circle-color': 'blue',
+            'circle-radius': 2,
+            'circle-opacity': 0.7,
           }
         };
 
@@ -285,22 +285,37 @@
 
             });
 
-            if (typeof (map.getSource('celltowers-src')) == 'undefined') {
-              map.addSource('celltowers-src', {
+            if (typeof (map.getSource('ems-src')) == 'undefined') {
+              map.addSource('ems-src', {
                 type: 'geojson',
-                data: celltowers
+                data: ems
               });
             } else {
-              map.getSource('celltowers-src').setData(celltowers);
+              map.getSource('ems-src').setData(ems);
 
             }
 
-            if (!map.getLayer("celltowers-points")) {
-              map.addLayer(cellTowersLayer);
+            if (!map.getLayer("ems-points")) {
+              map.addLayer(emsLayer);
             }
-          } 
+           
+
+
+            if (typeof (map.getSource('ushospital-src')) == 'undefined') {
+                map.addSource('ushospital-src', {
+                  type: 'geojson',
+                  data: ushospital
+                });
+              } else {
+                map.getSource('ushospital-src').setData(ushospital);
+              }
+
+              if (!map.getLayer("ushospital-points")) {
+                map.addLayer(ushospitalLayer);
+              }
+           
           
-          else if (index === 2) {
+          } else if (index === 2) {
             //Relocate to Seattle
             map.flyTo({
               center: [-122.32924428512132, 47.645212989022125],
@@ -329,8 +344,8 @@
           }
           
           else if (index === 1) {
-            if (map.getLayer("celltowers-points")) {
-              map.removeLayer('celltowers-points');
+            if (map.getLayer("ems-points")) {
+              map.removeLayer('ems-points');
             }
           }
 
