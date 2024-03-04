@@ -125,7 +125,7 @@
       let response, ushospital, celltowers, minority;
       response = await fetch("assets/ushospital.geojson");
       ushospital = await response.json();
-      response = await fetch("assets/celltowers.geojson");
+      response = await fetch("assets/WAHospitals.geojson");
       celltowers = await response.json();
       response = await fetch("assets/minority.geojson");
       minority = await response.json();
@@ -181,7 +181,7 @@
           'source': 'celltowers-src',
           'minzoom': 5,
           'paint': {
-            'circle-color': 'red',
+            'circle-color': 'purple',
             'circle-radius': 4,
             'circle-opacity': 0.8,
           }
@@ -279,7 +279,7 @@
           else if (index === 1) { // When enter the second scene.
             map.flyTo({
               center: [-122.32924428512132, 47.646212989022125],
-              zoom: 7,
+              zoom: 8,
               pitch: 60,
               speed: 0.5
 
