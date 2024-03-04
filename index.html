@@ -60,7 +60,7 @@
 
   <section id="footer">
     <h2>By: Yezhen Chen, Abi Chinn, Chaeri Hong, Elijah Price, & Wyatt Stanley</h2>
-    <h2>GEOG 458 Group AA 1</h2>
+    <h2>GEOG 458 Group AA1</h2>
   </section>
 
 
@@ -122,11 +122,13 @@
     async function geojsonFetch() {
 
       // 6 wait till the data of washington counties and celltowers are fully loaded.
-      let response, ushospital, celltowers;
+      let response, ushospital, celltowers, minority;
       response = await fetch("assets/ushospital.geojson");
       ushospital = await response.json();
       response = await fetch("assets/celltowers.geojson");
       celltowers = await response.json();
+      response = await fetch("assets/minority.geojson");
+      minority = await response.json();
 
 
       // 7. Trigger operations inside of the the ()=> {} funciton while loading the map.
@@ -149,6 +151,19 @@
               .setLngLat(feature.geometry.coordinates)
               .setHTML('<h3>' + feature.properties.NAME + '</h3><p>' + feature.properties.CITY + '</p>')
               .addTo(map);
+          
+          var Rfeatures = map.queryRenderedFeatures(e.point, { layers: ['race-layer'] });
+          if (!Rfeatures.length) {
+              return;
+          }
+          var Rfeature = Rfeatures[0];
+
+          // You can now access properties of the clicked feature and display them
+          var Rpopup = new mapboxgl.Popup()
+              .setLngLat(Rfeature.geometry.coordinates)
+              .setHTML('<h3>' + Rfeature.properties.MinorityP + '</h3>')
+              .addTo(map);
+          
         });
 
         // 8. add map source and declare layers.
@@ -186,20 +201,39 @@
           }
         };
 
-        map.addSource('min-tiles', {
-                'type': 'raster',
-                'tiles': [
-                    'assets/min/{z}/{x}/{y}.png'
-                ],
-                'tileSize': 256,
-            });
+        map.addSource('race-data', {
+            type: 'geojson',
+            data: minority
+        });
+        
         map.addLayer({
-            'id': 'min',
-            'type': 'raster',
-            'layout': {
-                'visibility': 'none'
-            },
-            'source': 'min-tiles'
+            'id': 'race-layer',
+            'type': 'fill',
+            'source': 'race-data',
+            'paint': {
+                'fill-color': [
+                    'step',
+                    ['get', 'MinorityP'],
+                    '#c0cffa',
+                    500,
+                    '#9daddf',
+                    1000,
+                    '#7d8ec4',
+                    1500,
+                    '#6171a9',
+                    2000,
+                    '#756bb1',
+                    2500,
+                    '#334173',
+                    3000,
+                    '#640A8D',
+                    3500,
+                    '#410C59',
+                    4000,
+                    '#14001E'
+                ],
+                'fill-outline-color': '#bcbcbc',
+            }
         });
 
         // 9. Initialize the script panel
@@ -217,31 +251,44 @@
 
           var index = response.index; // capture the id of the current scene. 
 
-          if (index === 0) { // When enter the first scene
-
+          if (index === 0 || index === 3) { // When entering scene 0 or 3
             map.flyTo({
-              center: [-122.3, 47.6],
-              zoom: 6,
-              pitch: 0,
-              speed: 0.5
-            }); // fly to a new location
+                center: [-122.3, 47.6],
+                zoom: 6,
+                pitch: 0,
+                speed: 0.5
+            }); // Fly to a new location
             
-            if (typeof (map.getSource('ushospital-src')) == 'undefined') { //if the map source 'counties-src' does not exist
-              map.addSource('ushospital-src', {
-                type: 'geojson',
-                data: ushospital
-              }); // reload the map source of 'counties-src'
+            if (typeof (map.getSource('ushospital-src')) == 'undefined') { // If the map source 'ushospital-src' does not exist
+                map.addSource('ushospital-src', {
+                    type: 'geojson',
+                    data: ushospital
+                }); // Add the map source of 'ushospital-src'
             } else {
-              map.getSource('ushospital-src').setData(ushospital); // if the map source does not exist, relaod the data counties to the pre-defined map source 'counties-src'.
-
+                map.getSource('ushospital-src').setData(ushospital); // If the map source exists, reload the data for 'ushospital-src'
             }
 
-            if (!map.getLayer("ushospital-points")) { // if the map layer 'counties-polygons' does not exit
-              map.addLayer(ushospitalLayer);
+            if (!map.getLayer("ushospital-points")) { // If the map layer 'ushospital-points' does not exist
+                map.addLayer(ushospitalLayer); // Add the hospital layer
             }
-            document.getElementById("cover").style.visibility = "hidden"; // Hide the cover page
 
-          } else if (index === 1) { // When enter the second scene.
+            if (index === 3) { // When entering scene 3
+            map.flyTo({
+                center: [-122.3659068281188, 47.591669543756304],
+                zoom: 11,
+                pitch: 0,
+                speed: 2
+            }); // Zoom in for scene 3
+            
+            if (map.getLayer("race-layer")) {
+                map.setLayoutProperty("race-layer", "visibility", "visible"); // Show the race layer
+            }
+          } if (index !== 3) {
+              map.setLayoutProperty("race-layer", "visibility", "none");
+            }
+          document.getElementById("cover").style.visibility = "hidden"; }
+          
+          else if (index === 1) { // When enter the second scene.
             map.flyTo({
               center: [-122.32924428512132, 47.646212989022125],
               zoom: 7,
@@ -276,20 +323,6 @@
 
           } 
           
-          else if (index === 3) {
-            map.flyTo({
-              center: [-122.3659068281188, 47.591669543756304],
-              zoom: 11,
-            }); // fly to a new location
-
-            if (map.getLayer("min")) {
-              map.setLayoutProperty("min", "visibility", "visible");
-            }
-          }
-
-          if (index !== 3 && map.getLayer("min")) {
-            map.setLayoutProperty("min", "visibility", "none");
-          }
 
         }
 
@@ -297,7 +330,7 @@
         function handleSceneExit(response) {
           var index = response.index;
 
-          if (index === 0) {
+          if (index === 0 || index === 3) {
             if (map.getLayer("ushospital-points")) {
               map.removeLayer('ushospital-points');
             }
@@ -306,11 +339,21 @@
             } else {
               document.getElementById("cover").style.visibility = "visible"; // when you scroll up, the cover page will be shown.
             }
-          } else if (index === 1) {
+          }
+          
+          else if (index === 1) {
             if (map.getLayer("celltowers-points")) {
               map.removeLayer('celltowers-points');
             }
           }
+
+          else if (index === 3) { 
+            if (map.getLayer("race-layer")) {
+            map.removelayer("race-layer"); 
+            }
+
+          }
+
         }
 
 

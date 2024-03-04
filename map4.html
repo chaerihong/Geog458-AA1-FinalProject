@@ -36,6 +36,12 @@
     
         map.on('load', function () {
             async function geojsonFetch() { 
+            let response, minority, ushospital;
+            response = await fetch('assets/minority.geojson');
+            minority = await response.json();
+
+            response = await fetch("assets/ushospital.geojson");
+            ushospital = await response.json();
                 map.addSource('min-tiles', {
                     'type': 'raster',
                     'tiles': [
@@ -51,11 +57,65 @@
                     },
                     'source': 'min-tiles'
                 });
+
+                map.addSource('race-data', {
+                    type: 'geojson',
+                    data: minority
+                });
+                
+                map.addLayer({
+                    'id': 'race-layer',
+                    'type': 'fill',
+                    'source': 'race-data',
+                    'paint': {
+                        'fill-color': [
+                            'step',
+                            ['get', 'MinorityP'],
+                            '#c0cffa',
+                            500,
+                            '#9daddf',
+                            1000,
+                            '#7d8ec4',
+                            1500,
+                            '#6171a9',
+                            2000,
+                            '#756bb1',
+                            2500,
+                            '#334173',
+                            3000,
+                            '#640A8D',
+                            3500,
+                            '#410C59',
+                            4000,
+                            '#14001E'
+                        ],
+                        'fill-outline-color': '#bcbcbc',
+                    }
+                });
     
                 // Corrected the arguments for map.setLayoutProperty()
                 if (map.getLayer("min")) {
                     map.setLayoutProperty("min", "visibility", "visible");
                 }
+
+                map.addSource('ushospital-src', {
+                    type: 'geojson',
+                    data: ushospital
+                });
+    
+                map.addLayer({
+                    'id': 'ushospital-points',
+                    'type': 'circle',
+                    'source': 'ushospital-src',
+                    'minzoom': 5,
+                    'paint': {
+                        'circle-color': 'red',
+                        'circle-radius': 4,
+                        'circle-opacity': 0.8,
+                    }
+                });
+
+                
             }
     
             geojsonFetch();
