@@ -125,8 +125,8 @@
       let response, ushospital, ems, minority;
       response = await fetch("assets/ushospital.geojson");
       ushospital = await response.json();
-      response = await fetch("assets/EMS_Stations.geojson");
-      ems = await response.json();
+      // response = await fetch("assets/EMS_Stations.geojson");
+      // ems = await response.json();
       response = await fetch("assets/minority.geojson");
       minority = await response.json();
 
@@ -153,10 +153,10 @@
         });
 
         // 8. add map source and declare layers.
-        map.addSource('ems-src', {
-          type: 'geojson',
-          data: ems
-        });
+        // map.addSource('ems-src', {
+        //   type: 'geojson',
+        //   data: ems
+        // });
 
         map.addSource('ushospital-src', {
           type: 'geojson',
@@ -175,17 +175,17 @@
           }
         };
 
-        emsLayer = {
-          'id': 'ems-points',
-          'type': 'circle',
-          'source': 'ems-src',
-          'minzoom': 5,
-          'paint': {
-            'circle-color': 'blue',
-            'circle-radius': 2,
-            'circle-opacity': 0.7,
-          }
-        };
+        // emsLayer = {
+        //   'id': 'ems-points',
+        //   'type': 'circle',
+        //   'source': 'ems-src',
+        //   'minzoom': 5,
+        //   'paint': {
+        //     'circle-color': 'blue',
+        //     'circle-radius': 2,
+        //     'circle-opacity': 0.7,
+        //   }
+        // };
 
         map.addSource('race-data', {
             type: 'geojson',
@@ -261,7 +261,7 @@
             if (index === 3) { // When entering scene 3
             map.flyTo({
                 center: [-122.3659068281188, 47.591669543756304],
-                zoom: 11,
+                zoom: 10,
                 pitch: 0,
                 speed: 2
             }); // Zoom in for scene 3
@@ -285,35 +285,21 @@
 
             });
 
-            if (typeof (map.getSource('ems-src')) == 'undefined') {
-              map.addSource('ems-src', {
-                type: 'geojson',
-                data: ems
-              });
-            } else {
-              map.getSource('ems-src').setData(ems);
+            // if (typeof (map.getSource('ems-src')) == 'undefined') {
+            //   map.addSource('ems-src', {
+            //     type: 'geojson',
+            //     data: ems
+            //   });
+            // } else {
+            //   map.getSource('ems-src').setData(ems);
 
-            }
+            // }
 
-            if (!map.getLayer("ems-points")) {
-              map.addLayer(emsLayer);
-            }
+            // if (!map.getLayer("ems-points")) {
+            //   map.addLayer(emsLayer);
+            // }
            
 
-
-            if (typeof (map.getSource('ushospital-src')) == 'undefined') {
-                map.addSource('ushospital-src', {
-                  type: 'geojson',
-                  data: ushospital
-                });
-              } else {
-                map.getSource('ushospital-src').setData(ushospital);
-              }
-
-              if (!map.getLayer("ushospital-points")) {
-                map.addLayer(ushospitalLayer);
-              }
-           
           
           } else if (index === 2) {
             //Relocate to Seattle
@@ -343,17 +329,17 @@
             }
           }
           
-          else if (index === 1) {
-            if (map.getLayer("ems-points")) {
-              map.removeLayer('ems-points');
-            }
-          }
-
-          // if (index === 3) { 
-          //   if (map.getLayer("race-layer")) {
-          //     map.removeLayer("race-layer");
+          // else if (index === 1) {
+          //   if (map.getLayer("ems-points")) {
+          //     map.removeLayer('ems-points');
           //   }
           // }
+
+          if (index === 3) { 
+            if (map.getLayer("race-layer")) {
+              map.removeLayer("race-layer");
+            }
+          }
 
         }
 
