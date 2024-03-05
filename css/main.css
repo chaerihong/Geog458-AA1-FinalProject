@@ -111,7 +111,7 @@ p {
   margin: 0 auto 0 4rem;
   padding: 0;
   color: #fff;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .scene:first-child {
