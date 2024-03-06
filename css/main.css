@@ -174,20 +174,20 @@ nav a {
 
 .row {
   display: flex;
-  flex-direction: row; /* Make rows appear next to each other */
+  flex-direction: row; 
   justify-content: center;
-  margin-bottom: 20px; /* Adjust as needed */
+  margin-bottom: 20px; 
 
 }
 
 .bio {
   text-align: center;
-  width: 300px; /* Set a fixed width */
-  height: 300px; /* Set a fixed height */
+  width: 300px; 
+  height: 300px; 
   padding: 10px;
   border: 1px solid #ccc;
   box-sizing: border-box;
-  margin: 10px; /* Add margin to create space between bios */
+  margin: 10px;
 }
 
 .about-page h1 {
@@ -207,4 +207,11 @@ nav a {
   margin-left: 30%;
   text-align: center;
   word-wrap: break-word;
+}
+
+figcaption {
+  font-size: x-small;
+  color: black;
+  text-align: right;
+  margin-right: 30px;
 }

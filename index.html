@@ -66,6 +66,7 @@
         <img class="img" src="img/uwmed.jpg" style="width: 40%; height: auto; margin: 0 10px;">
         <img class="img" src="img/minoritylegend.png" style="width: 20%; height: auto; margin: 0 10px;">
       </div>
+      <figcaption>Images courtesy of <a href="https://www.usa.skanska.com/4a532f/globalassets/externalcontent2/project/university-of-washington-medical-center-montlake-tower-expansion/ab603c15-f473-47cb-a54c-c5ba53b2558d.1.jpg?height=524&width=932&scale=both&mode=crop&bgcolor=">Skanska</a> and QGIS</figcaption>
       <p>Disparities in healthcare access are an important determinant of overall health outcomes, resulting in unequal access to healthcare for various populations and contributing to the measurable and observable effects or results healthcare services have on individuals and communities. Due to differences in accessibility in healthcare, equitable health outcomes cannot be reached as inequalities are at play. Here, we explore how the City of Seattle's hospitals are distributed along with the City's minority population by census tract to explore whether demographics impact healthcare accessibility. The analysis reveals that in Seattle there appears to be a relationship between hospital distributions and minority population suggesting that minority populations in the City of Seattle face challenges in accessing healthcare services, specifically hospitals, as there are spatial disparities based on demographics. The spatial distribution of hospitals in Seattle largely clusters in areas where fewer minorities reside, resulting in inequitable healthcare access to minority populations that lower their health outcomes.</p>
 
     </article>
@@ -165,10 +166,6 @@
         });
 
         // 8. add map source and declare layers.
-        // map.addSource('ems-src', {
-        //   type: 'geojson',
-        //   data: ems
-        // });
 
         map.addSource('ushospital-src', {
           type: 'geojson',
@@ -233,42 +230,42 @@
         // 10. This function performs when a scene enters the storyboard
         function handleSceneEnter(response) {
 
-          var index = response.index; // capture the id of the current scene. 
+          var index = response.index; 
 
-          if (index === 0 || index === 3) { // When entering scene 0 or 3
+          if (index === 0 || index === 3) { 
             map.flyTo({
                 center: [-124.5, 40],
                 zoom: 5,
                 pitch: 30,
                 speed: 0.5
-            }); // Fly to a new location
+            }); 
             
-            if (typeof (map.getSource('ushospital-src')) == 'undefined') { // If the map source 'ushospital-src' does not exist
+            if (typeof (map.getSource('ushospital-src')) == 'undefined') { 
                 map.addSource('ushospital-src', {
                     type: 'geojson',
                     data: ushospital
-                }); // Add the map source of 'ushospital-src'
+                }); 
             } else {
-                map.getSource('ushospital-src').setData(ushospital); // If the map source exists, reload the data for 'ushospital-src'
+                map.getSource('ushospital-src').setData(ushospital); 
             }
 
-            if (!map.getLayer("ushospital-points")) { // If the map layer 'ushospital-points' does not exist
-                map.addLayer(ushospitalLayer); // Add the hospital layer
+            if (!map.getLayer("ushospital-points")) { 
+                map.addLayer(ushospitalLayer); 
             }
 
-            if (index === 3) { // When entering scene 3
+            if (index === 3) { 
             map.flyTo({
                 center: [-122.3659068281188, 47.591669543756304],
                 zoom: 10,
                 pitch: 0,
                 speed: 2
-            }); // Zoom in for scene 3
+            }); 
             if (map.getLayer("min")) {
               map.setLayoutProperty("min", "visibility", "visible");
             }
           }
         
-        } else if (index === 1) { // When enter the second scene.
+        } else if (index === 1) { 
             map.flyTo({
               center: [-122.32924428512132, 47.646212989022125],
               zoom: 7,
@@ -279,23 +276,6 @@
             if (map.getLayer("countypop")) {
               map.setLayoutProperty("countypop", "visibility", "visible");
             }
-
-            // if (typeof (map.getSource('ems-src')) == 'undefined') {
-            //   map.addSource('ems-src', {
-            //     type: 'geojson',
-            //     data: ems
-            //   });
-            // } else {
-            //   map.getSource('ems-src').setData(ems);
-
-            // }
-
-            // if (!map.getLayer("ems-points")) {
-            //   map.addLayer(emsLayer);
-            // }
-
-           
-
           
           } else if (index === 2) {
             //Relocate to Seattle
@@ -331,11 +311,6 @@
             map.setLayoutProperty("countypop", "visibility", "none");
           }
           
-          // else if (index === 1) {
-          //   if (map.getLayer("ems-points")) {
-          //     map.removeLayer('ems-points');
-          //   }
-          // }
         }
 
 
