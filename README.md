@@ -25,13 +25,13 @@ We will use our maps and data to display hospital availability in the United Sta
 
 [Hospital statistics by state](https://www.ahd.com/state_statistics.html)
 
-[Hospitals in the United States](https://hifld-geoplatform.opendata.arcgis.com/datasets/geoplatform::hospitals/about)
-
-[Parcels in Washington](https://geo.wa.gov/datasets/e8f2df3ed92843738f3dd778e92e93fc/explore)
+[Hospitals in the United States](https://hub.arcgis.com/datasets/geoplatform::hospitals/explore?location=47.635176%2C-122.255440%2C11.41)
 
 [Washington State Counties](https://cartographyvectors.com/map/1396-washington-state-counties)
 
-[States](https://hub.arcgis.com/datasets/1b02c87f62d24508970dc1a6df80c98e/explore?location=27.635228%2C-101.458575%2C3.68)
+[Census Tracts](https://data-seattlecitygis.opendata.arcgis.com/datasets/9075e8c912a24c4b9458af8866c72ae7/explore?location=59.801857%2C-99.687557%2C3.71)
+
+[Population Demographic Data](https://data.census.gov/table/DECENNIALDP2020.DP1?g=040XX00US53,53$1400000&d=DEC%20Demographic%20Profile)
 
 ## Target audience
 We want our audience to be community members. Bottom-up challenges to authority figures as learned from Stand with #StandingRock are where ordinary people can ignite change or create momentum. Those in government and public policy will be unlikely to build hospitals in areas where there aren't already because of high costs, so hospitals need to be pushed by community voices that unite together. The existence of hospital services that provide essential healthcare services will be important for community members who live in those areas to get services they may need. Informing community members and the public with these facts may bring the topic of medical care up to the table in areas lacking hospital availability. 
