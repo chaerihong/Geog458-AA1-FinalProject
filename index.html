@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
   <title>Hospital Accessibility</title>
+  <link rel="icon" href="img/fav.png">
   <!-- <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;1,400;1,500&display=swap" /> -->
   <!-- <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css"> -->
@@ -20,8 +21,9 @@
   <header>
     <nav>
       <ul>
-        <a href="#">Home</a>
-        <a href="#about">About</a>
+        <img src="img/fav.png" alt="hospital" style="width: 30px; height: auto;">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
       </ul>
     </nav>
   </header>
@@ -137,9 +139,6 @@
       ushospital = await response.json();
       // response = await fetch("assets/EMS_Stations.geojson");
       // ems = await response.json();
-      response = await fetch("assets/minority.geojson");
-      minority = await response.json();
-
 
       // 7. Trigger operations inside of the the ()=> {} funciton while loading the map.
       map.on('load', () => {
@@ -197,39 +196,20 @@
         //   }
         // };
 
-        map.addSource('race-data', {
-            type: 'geojson',
-            data: minority
-        });
-        
-        map.addLayer({
-            'id': 'race-layer',
-            'type': 'fill',
-            'source': 'race-data',
-            'paint': {
-                'fill-color': [
-                    'step',
-                    ['get', 'MinorityP'],
-                    '#c0cffa',
-                    500,
-                    '#9daddf',
-                    1000,
-                    '#7d8ec4',
-                    1500,
-                    '#6171a9',
-                    2000,
-                    '#756bb1',
-                    2500,
-                    '#334173',
-                    3000,
-                    '#640A8D',
-                    3500,
-                    '#410C59',
-                    4000,
-                    '#14001E'
+        map.addSource('min-tiles', {
+                'type': 'raster',
+                'tiles': [
+                    'assets/min/{z}/{x}/{y}.png'
                 ],
-                'fill-outline-color': '#bcbcbc',
-            }
+                'tileSize': 256,
+            });
+        map.addLayer({
+            'id': 'min',
+            'type': 'raster',
+            'layout': {
+                'visibility': 'none'
+            },
+            'source': 'min-tiles'
         });
 
         // 9. Initialize the script panel
@@ -275,14 +255,10 @@
                 pitch: 0,
                 speed: 2
             }); // Zoom in for scene 3
-            
-            if (map.getLayer("race-layer")) {
-                map.setLayoutProperty("race-layer", "visibility", "visible"); // Show the race layer
+            if (map.getLayer("min")) {
+              map.setLayoutProperty("min", "visibility", "visible");
             }
-          } if (index !== 3) {
-              map.setLayoutProperty("race-layer", "visibility", "none");
-            }
-          document.getElementById("cover").style.visibility = "hidden"; 
+          }
         
         }
           
@@ -337,6 +313,9 @@
             } else {
               document.getElementById("cover").style.visibility = "visible"; // when you scroll up, the cover page will be shown.
             }
+            if (index === 3 && map.getLayer("min")) {
+            map.setLayoutProperty("min", "visibility", "none");
+          }
           }
           
           // else if (index === 1) {
@@ -344,13 +323,6 @@
           //     map.removeLayer('ems-points');
           //   }
           // }
-
-          if (index === 3) { 
-            if (map.getLayer("race-layer")) {
-              map.removeLayer("race-layer");
-            }
-          }
-
         }
 
 
