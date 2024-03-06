@@ -55,6 +55,7 @@
     </article>
     <article class="scene" data-scene="1">
       <h2>Hospitals and County Population in WA </h2>
+      <img class="img" src="img/countypopLegend.png" style="width: 50%; height: auto; display: block; margin: 0 auto;"></img>
     </article>
     <article class="scene" data-scene="2">
       <h2>Total Beds in Hospitals in WA</h2>
@@ -134,11 +135,9 @@
     async function geojsonFetch() {
 
       // 6 wait till the data of washington counties and ems are fully loaded.
-      let response, ushospital, ems, minority;
+      let response, ushospital, minority;
       response = await fetch("assets/ushospital.geojson");
       ushospital = await response.json();
-      // response = await fetch("assets/EMS_Stations.geojson");
-      // ems = await response.json();
 
       // 7. Trigger operations inside of the the ()=> {} funciton while loading the map.
       map.on('load', () => {
@@ -184,18 +183,6 @@
           }
         };
 
-        // emsLayer = {
-        //   'id': 'ems-points',
-        //   'type': 'circle',
-        //   'source': 'ems-src',
-        //   'minzoom': 5,
-        //   'paint': {
-        //     'circle-color': 'blue',
-        //     'circle-radius': 2,
-        //     'circle-opacity': 0.7,
-        //   }
-        // };
-
         map.addSource('min-tiles', {
                 'type': 'raster',
                 'tiles': [
@@ -210,6 +197,23 @@
                 'visibility': 'none'
             },
             'source': 'min-tiles'
+        });
+
+
+        map.addSource('countypop-tiles', {
+                'type': 'raster',
+                'tiles': [
+                    'assets/countypop/{z}/{x}/{y}.png'
+                ],
+                'tileSize': 256,
+        });
+        map.addLayer({
+            'id': 'countypop',
+            'type': 'raster',
+            'layout': {
+                'visibility': 'none'
+            },
+            'source': 'countypop-tiles'
         });
 
         // 9. Initialize the script panel
@@ -260,16 +264,17 @@
             }
           }
         
-        }
-          
-          else if (index === 1) { // When enter the second scene.
+        } else if (index === 1) { // When enter the second scene.
             map.flyTo({
               center: [-122.32924428512132, 47.646212989022125],
-              zoom: 8,
-              pitch: 60,
+              zoom: 7,
+              pitch: 40,
               speed: 0.5
 
             });
+            if (map.getLayer("countypop")) {
+              map.setLayoutProperty("countypop", "visibility", "visible");
+            }
 
             // if (typeof (map.getSource('ems-src')) == 'undefined') {
             //   map.addSource('ems-src', {
@@ -284,6 +289,7 @@
             // if (!map.getLayer("ems-points")) {
             //   map.addLayer(emsLayer);
             // }
+
            
 
           
@@ -315,7 +321,10 @@
             }
             if (index === 3 && map.getLayer("min")) {
             map.setLayoutProperty("min", "visibility", "none");
+            }
           }
+          if (index === 1 && map.getLayer("countypop")) {
+            map.setLayoutProperty("countypop", "visibility", "none");
           }
           
           // else if (index === 1) {
