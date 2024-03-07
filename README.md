@@ -20,6 +20,9 @@ Our project could generate a negative impact when done because it may show an ab
 ## Functions
 We will use our maps and data to display hospital availability in the United States and Washington. Using a series of datasets, we will illustrate patterns in the distribution of hospital access in Washington State. As users scroll downward on the webpage, they will be able to view the various maps listed above as they demonstrate hospital accessibility and disparities in access from a country level to a city level. As users hover over data points on the maps, they will be able to see different data points, such as the county population in Washington, hospital numbers within the area, and the county name.
 
+
+![Hospital_proximity_screenshot](https://github.com/chaerihong/Geog458-AA1-FinalProject/assets/157386199/567ebac9-55d0-4db4-8c20-8ceb74689f48)
+
 ## Data sources
 [Washington County population](https://data.wa.gov/demographics/WAOFM-Census-Population-Density-by-County-by-Decad/e6ip-wkqq/about_data)
 
