@@ -91,4 +91,7 @@ Lastly, one of the potential audiences is governmental officials. Informing them
     - Map: Distance from Parcels to Hospitals in Seattle as choropleth
     - Associated script:
     - Multimedia:
-- Transitions: zoom in from place to place when geographical location changes, however, for same ones (like US), zoom will remain the same ; Scroll to transit among maps and pages. 
+- Transitions: zoom in from place to place when geographical location changes, however, for same ones (like US), zoom will remain the same ; Scroll to transit among maps and pages.
+
+- Acknowledgements
+    - We would like to thank Professor Zhao and Liz Peng for helping our struggles and answering our questions.
