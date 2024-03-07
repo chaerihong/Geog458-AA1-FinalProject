@@ -55,10 +55,11 @@
     </article>
     <article class="scene" data-scene="1">
       <h2>Hospitals and County Population in WA </h2>
-      <img class="img" src="img/countypopLegend.png" style="width: 50%; height: auto; display: block; margin: 0 auto;"></img>
+      <img class="img" src="img/county pop citation.png" style="width: 100%; height: auto; display: block; margin: 0 auto;"></img>
     </article>
     <article class="scene" data-scene="2">
       <h2>Total Beds in Hospitals in WA</h2>
+      <img class="img" src="img/beds legend.png" style="width: 100%; height: auto; display: block; margin: 0 auto;"></img>
     </article>
     <article class="scene" data-scene="3">
       <h2>Hospital Accessibility for Minority Populations by Census Tract in Seattle, WA</h2>
@@ -217,6 +218,22 @@
             'source': 'countypop-tiles'
         });
 
+        map.addSource('beds-tiles', {
+                'type': 'raster',
+                'tiles': [
+                    'assets/beds/{z}/{x}/{y}.png'
+                ],
+                'tileSize': 256,
+        });
+        map.addLayer({
+            'id': 'beds',
+            'type': 'raster',
+            'layout': {
+                'visibility': 'none'
+            },
+            'source': 'beds-tiles'
+        });
+
         // 9. Initialize the script panel
         scriptPanel
           .setup({
@@ -285,6 +302,9 @@
               pitch: 0,
               speed: 0.5
             });
+            if (map.getLayer("beds")) {
+              map.setLayoutProperty("beds", "visibility", "visible");
+            }
 
           } 
           
@@ -309,6 +329,9 @@
           }
           if (index === 1 && map.getLayer("countypop")) {
             map.setLayoutProperty("countypop", "visibility", "none");
+          }
+          if (index === 2 && map.getLayer("beds")) {
+            map.setLayoutProperty("beds", "visibility", "none");
           }
           
         }
