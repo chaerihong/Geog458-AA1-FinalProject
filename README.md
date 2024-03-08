@@ -1,7 +1,7 @@
 # Hospital Accessiblity
 GEOG 458 AA1 Final Project
 
-Link to Geonarrative: https://chaerihong.github.io/geog458-aa1-finalproject
+Link to Geonarrative: https://chaerihong.github.io/geog458_aa1_finalproject
 
 ### Group AA1
 - Abi Chinn
