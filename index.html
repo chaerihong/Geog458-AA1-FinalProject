@@ -52,13 +52,18 @@
 
     <article class="scene" data-scene="0">
       <h2>Hospitals in the US</h2>
+      <br>
       </div>
-      <div style="display: flex; flex-direction: column; align-items: center;">
-        <img class="img" src="img/aerial.jpg" style="width: 40%; height: auto; margin: 0 10px;">
+        <div class="middle-sum">
+          <img class="img" src="img/aerial.jpg" style="width: 40%; height: auto; margin: 0 10px;">
+          <img class="img" src="img/hospitalLegend.png" style="width: 10%; height: 10%; margin: 0 10px;">
+        </div>
+        <div class="middle-sum">
+          <figcaption>Image courtesy of <a href="https://news.med.virginia.edu/community/uva-health-riverside-health-system-form-new-strategic-alliance/attachment/hospital-aerial/">Medicine in Motion</a></figcaption>
+        </div>
       </div>
-      </div>
-      <figcaption>Image courtesy of <a href="https://news.med.virginia.edu/community/uva-health-riverside-health-system-form-new-strategic-alliance/attachment/hospital-aerial/">Medicine in Motion</a></figcaption>
     </article>
+
     <article class="scene" data-scene="1">
       <h2>Hospitals and County Population in WA </h2>
       <div class="middle-sum">
@@ -265,7 +270,7 @@
 
           if (index === 0 || index === 3) { 
             map.flyTo({
-                center: [-124.5, 40],
+                center: [-124.5, 42],
                 zoom: 5,
                 pitch: 30,
                 speed: 0.5
@@ -286,7 +291,7 @@
 
             if (index === 3) { 
             map.flyTo({
-                center: [-122.3659068281188, 47.591669543756304],
+                center: [-122.5, 47.591669543756304],
                 zoom: 10,
                 pitch: 0,
                 speed: 2
@@ -298,9 +303,9 @@
         
         } else if (index === 1) { 
             map.flyTo({
-              center: [-122.32924428512132, 47.646212989022125],
-              zoom: 7,
-              pitch: 20,
+              center: [-124.5, 47],
+              zoom: 6,
+              pitch: 0,
               speed: 0.5
 
             });
@@ -311,8 +316,8 @@
           } else if (index === 2) {
             //Relocate to Seattle
             map.flyTo({
-              center: [-122.32924428512132, 47.645212989022125],
-              zoom: 7,
+              center: [-124.5, 47],
+              zoom: 6,
               pitch: 0,
               speed: 0.5
             });
