@@ -221,3 +221,14 @@ figcaption {
 }
 
 .middle-sum {display: flex; justify-content: center;}
+
+[data-scene="4"] {
+font-size:large;
+color:white;
+background: url("../img/UWBlueSky.jpg");
+background-size: cover;
+}
+
+[data-scene="4"] p{
+color: #fff;
+}
