@@ -41,6 +41,7 @@ The goal of this project is to raise awareness to the lack of accessiblity to ho
 - Mapbox
 - Github
 - QGIS
+- QMetaTiles 
 - VSCode
 
 ## Target audience
