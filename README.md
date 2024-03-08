@@ -45,6 +45,7 @@ Lastly, one of the potential audiences is governmental officials. Informing them
 - Mapbox
 - Github
 - QGIS
+- QMetaTiles 
 - VSCode
 
 > Acknowledgement: We would like to thank Professor Zhao and Liz Peng for helping our struggles and answering our questions.
