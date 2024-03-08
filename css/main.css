@@ -215,3 +215,9 @@ figcaption {
   text-align: right;
   margin-right: 30px;
 }
+
+.map-sum {
+  width: 40%; height: auto; margin: 0 10px;
+}
+
+.middle-sum {display: flex; justify-content: center;}
