@@ -68,16 +68,18 @@
       <h2>Hospitals and County Population in WA </h2>
       <div class="middle-sum">
         <img class="img" src="img/hospital.jpg" style="width: 40%; height: auto; margin: 0 10px;">
-        <img class="img" src="img/countylegend.png" style="width: 20%; height: auto; margin: 0 10px;"></img>
+        <img class="img" src="img/countylegend.png" style="width: 40%; height: auto; margin: 0 10px;"></img>
       </div>
+      <p>It can be concluded from this map that counties with higher population and larger area tends to get more hospitals with a few exceptions like Whatcom and Franklin. The four counties with the highest population are King, Snohomish, Pierce, Clark, and Spokane. What's more, many hospitals tends to cluster around Seattle area. There are a few counties which seems to have larger land area and small amount of hospitals. However, it doesn't necessary prove that these counties are lack of medical resources. </p>
       <figcaption>Images courtesy of <a href="https://www.va.gov/puget-sound-health-care/locations/seattle-va-medical-center/">US Department of Veteran's Affairs</a> and QGIS</figcaption>
     </article>
     <article class="scene" data-scene="2">
       <h2>Total Beds in Hospitals in WA</h2>
       <div class="middle-sum">
         <img class="img" src="img/bed.png" style="width: 40%; height: auto; margin: 0 10px;">
-        <img class="img" src="img/bedslegend.png" style="width: 20%; height: auto; margin: 0 10px;"></img>
+        <img class="img" src="img/bedslegend.png" style="width: 40%; height: auto; margin: 0 10px;"></img>
       </div>
+      <p>Avaiable beds in hospitals is a very straight and precise reference to evalute the available medical resource received by each county. Combined with the former map, it can be concluded that the counties with more population also has more beds. We can see from the former map that some county with large population still may only have a few hospitals. However, we don't see a heavy populated county having less available beds in this map. It can also be predicted that some couties with larger population and less hospitals tends to have larger hospitals with more beds. </p>
       <figcaption>Images courtesy of <a href="https://www.modernhealthcare.com/hospitals/covid-19-could-fill-hospital-beds-how-many-are-there">Modern Healthcare</a> and QGIS</figcaption>
     </article>
     <article class="scene" data-scene="3">
@@ -304,7 +306,7 @@
         } else if (index === 1) { 
             map.flyTo({
               center: [-124.5, 47],
-              zoom: 6,
+              zoom: 7,
               pitch: 0,
               speed: 0.5
 
@@ -317,7 +319,7 @@
             //Relocate to Seattle
             map.flyTo({
               center: [-124.5, 47],
-              zoom: 6,
+              zoom: 7,
               pitch: 0,
               speed: 0.5
             });
