@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>county Population in Seattle and Hospitals</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiamFrb2J6aGFvIiwiYSI6ImNpcms2YWsyMzAwMmtmbG5icTFxZ3ZkdncifQ.P9MBej1xacybKcDN_jehvw';
+        let map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/light-v10',
+            zoom: 10.3,
+            minZoom: 3,
+            center: [-122.3659068281188, 47.591669543756304],
+        });
+    
+        map.on('load', function () {
+                map.addSource('countypop-tiles', {
+                    'type': 'raster',
+                    'tiles': [
+                        'assets/countypop/{z}/{x}/{y}.png'
+                    ],
+                    'tileSize': 256,
+                });
+                map.addLayer({
+                    'id': 'countypop',
+                    'type': 'raster',
+                    'layout': {
+                        'visibility': 'none'
+                    },
+                    'source': 'countypop-tiles'
+                });
+    
+                // Corrected the arguments for map.setLayoutProperty()
+                if (map.getLayer("countypop")) {
+                    map.setLayoutProperty("countypop", "visibility", "visible");          
+            }
+            map.setLayoutProperty("countypop", "visibility", "none");
+    
+            geojsonFetch();
+        });
+    </script>
+
+</body>
+
+</html>
